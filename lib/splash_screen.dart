@@ -5,7 +5,7 @@ import 'onboarding_screen.dart'; //Importing my onboarding screen
 
 // This is my Splash Screen widget
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     _animationController.forward();
 
      // After 3 seconds, navigate to the onboarding screen
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 10), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const OnboardingScreen()),
@@ -72,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // App Icon
+                // App Logo 
                 Container(
                   width: 120,
                   height: 120,
@@ -87,14 +87,18 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                       ),
                     ],
                   ),
-                  child: Icon(
-                    Icons.directions_car,
-                    size: 70,
-                    color: Color(0xFF6366F1),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Image.asset(
+                      'assets/images/pearltrop_logo.png', 
+                      fit: BoxFit.contain,
+                      width: 120,
+                      height: 150,
+                    ),
                   ),
                 ),
                 
-                const SizedBox(height: 30),
+                const SizedBox(height: 50),
                 
                 // App Name
                 const Text(
@@ -120,12 +124,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                 ),
                 
                 const SizedBox(height: 50),
-                
-                // Loading indicator
-                const CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                  strokeWidth: 3,
-                ),
               ],
             ),
           ),

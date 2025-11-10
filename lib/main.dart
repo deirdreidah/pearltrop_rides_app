@@ -18,7 +18,7 @@ void main() {
 
 // This is my main app widget
 class MyRideApp extends StatelessWidget {
-  const MyRideApp({Key? key}) : super(key: key);
+  const MyRideApp({super.key});
 
   @override
   Widget build(BuildContext context) {
