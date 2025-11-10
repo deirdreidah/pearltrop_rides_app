@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pearltrop_rides/screens/login_screen.dart';
 
 // This is the data model for each onboarding page
 class OnboardingPage {
@@ -17,7 +18,7 @@ class OnboardingPage {
 
 // Main Onboarding Screen Widget
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+  const OnboardingScreen({super.key});
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
@@ -81,10 +82,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   // Finish onboarding and navigate to next screen
-  void _finishOnboarding() {
-    // Example: Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
-    print('Onboarding finished - navigate to login/home screen here!');
-  }
+ void _finishOnboarding() {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => const LoginScreen()),
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -177,9 +181,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   // Build individual onboarding page
   Widget _buildPage(OnboardingPage page) {
-    return Padding(
-      padding: const EdgeInsets.all(40.0),
-      child: Column(
+     return SingleChildScrollView(
+       padding: const EdgeInsets.all(40.0),
+       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Icon container with animation
